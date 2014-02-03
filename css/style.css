@@ -1,0 +1,117 @@
+html {
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+body {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 44px;
+  font-family: sans-serif;
+  font-size: 16px;
+  background: #eee;
+  border-top: 3px solid #4FBA29;
+}
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+}
+  .messages-wrapper {
+    min-height: 400px;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+  }
+
+/* Send a message input box */
+.input {
+  margin-top: 16px;
+}
+
+input[type="text"] {
+  margin: 0;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: .9em;
+}
+  input[type="text"]:focus {
+    outline: 0;
+    border-color: #4FBA29;
+  }
+
+  input.name {
+    width: 150px;
+    margin-right: 8px;
+  }
+  input.text {
+    width: 437px;
+  }
+
+/* Messages list */
+.messages {
+  margin: 0;
+  padding: 0;
+  height: 450px;
+  overflow: auto;
+}
+  .messages li {
+    list-style: none;
+    padding: 9px 14px;
+    line-height: 1.4;
+    border-bottom: 1px dotted #ccc;
+    font-weight: 500;
+  }
+
+  .messages li:last-child {
+    border-bottom: 0;
+  }
+
+  [class^="user-"] {
+    display: inline-block;
+  }
+
+  .user-name {
+    color: #999;
+    margin-right: 16px;
+    font-size: .9em;
+  }
+
+    .user-name:after {
+      content: ":";
+    }
+
+
+@media screen and (max-height: 700px) {
+  .messages-wrapper {
+    min-height: 0;
+  }
+  .messages {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .container {
+      padding: 0 10px;
+      margin: 20px auto;
+  }
+  h1 {
+      font-size: 1.2em;
+  }
+  .messages-wrapper {
+      min-height: 0;
+  }
+  .messages {
+      height: 225px;
+      font-size: .8em;
+  }
+  input[type="text"] {
+      width: 100%;
+      margin-bottom: 5px;
+  }
+}
