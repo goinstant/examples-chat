@@ -78,7 +78,11 @@ $(function() {
       return;
     }
 
-    messagesKey.add(message);
+    var options = {
+      expire: 48 * 60 * 60 * 1000 // 48 hours
+    };
+
+    messagesKey.add(message, options);
   }
 
   function handleName(event) {
