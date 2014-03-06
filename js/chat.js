@@ -51,7 +51,7 @@ $(function() {
     $name.on('keydown blur', handleName);
   });
 
-  function addMessage(message) {
+  function addMessage(message, context) {
     var $message = $('<li><div class="user-name"></div><div class="user-message"></div></li>');
     $message.addClass('message');
 
@@ -60,8 +60,11 @@ $(function() {
 
     $messages.append($message);
 
-    $text.val('');
     _scrollBottom();
+
+    if (context.userId === user.id) {
+      $text.val('');
+    }
   }
 
   function handleMessage(event) {
