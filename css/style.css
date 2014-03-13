@@ -86,6 +86,8 @@ input[type="text"] {
     }
 
   .user-message {
+    position: relative;
+    top: .35em;
     max-width: 100%;
     overflow: hidden;
   }
