@@ -62,7 +62,7 @@ $(function() {
 
     _scrollBottom();
 
-    if (context.userId === user.id) {
+    if (context && context.userId === user.id) {
       $text.val('');
     }
   }
