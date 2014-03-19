@@ -7,7 +7,7 @@ $(function() {
   var _ = window._;
   var goinstant = window.goinstant;
 
-  var url = 'https://goinstant.net/ntassone/test';
+  var url = 'YOUR CONNECT URL HERE';
 
   var conn;
   var room;
