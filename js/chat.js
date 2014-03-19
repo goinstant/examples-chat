@@ -123,11 +123,11 @@ $(function() {
 
   function displayLogOut() {
     var $btn = $('<div></div>');
-    var $link = $('<a>Logout</a>');
+    var $link = $('<a><span>Logout</span></a>');
 
     $link.attr('href', conn.logoutUrl());
     $btn.attr('class', 'logout');
-    $btn.append('<span></span>');
+    $link.prepend('<span class="icon"></span>');
     $btn.append($link);
 
     $auth.append($btn);

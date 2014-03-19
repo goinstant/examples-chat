@@ -149,8 +149,10 @@ body {
   background-image: url("../img/logout-icon.png");
 }
 
-.logout {
+.auth .logout {
   background-color: #aaaaaa;
+  border-right: 0;
+  border-radius: 2px;
 }
 
 @media screen and (max-width: 600px) {
@@ -161,6 +163,19 @@ body {
     display: block;
     width: 100%;
     background-color: transparent;
+  }
+  .auth .logout {
+    width: auto;
+    display: inline-block;
+  }
+  .auth .logout a span {
+    display: block;
+    padding-right: 7px;
+  }
+  .auth .logout a .icon {
+    display: inline-block;
+    width: 30px;
+    background-color: #919191;
   }
 }
 
