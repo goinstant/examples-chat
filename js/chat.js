@@ -9,10 +9,12 @@ $(function() {
 
   var url = 'CONNECT_URL_HERE';
 
+  var conn;
   var room;
   var user;
   var messagesKey;
 
+  var $auth = $('.auth');
   var $name = $('.name');
   var $text = $('.text');
   var $messages = $('.messages');
@@ -20,6 +22,7 @@ $(function() {
   var connect = goinstant.connect(url);
 
   connect.then(function(result) {
+    conn = result.connection;
     room = result.rooms[0];
     messagesKey = room.key('messages');
 
@@ -27,6 +30,14 @@ $(function() {
 
   }).then(function(result) {
     user = result.value;
+
+    if (conn.isGuest()) {
+      displayLogin();
+
+    } else {
+      displayLogOut();
+    }
+
     $name.val(user.displayName);
 
     return messagesKey.get();
@@ -41,18 +52,17 @@ $(function() {
 
   }).fin(function() {
     var options = {
-      local: true,
-      listener: addMessage
+      local: true
     };
 
-    messagesKey.on('add', options);
-
+    messagesKey.on('add', options, addMessage);
     $text.on('keydown', handleMessage);
-    $name.on('keydown blur', handleName);
   });
 
   function addMessage(message, context) {
-    var $message = $('<li><div class="user-name"></div><div class="user-message"></div></li>');
+    var $message = $('<li><div class="user-name"></div>' +
+                     '<div class="user-message"></div></li>');
+
     $message.addClass('message');
 
     $message.children().first().text(message.name);
@@ -84,19 +94,43 @@ $(function() {
     messagesKey.add(message);
   }
 
-  function handleName(event) {
-    if (event.which !== 13 && event.type === 'keydown')  {
-      return;
-    }
+  function displayLogin() {
+    var $list = $('<ul></ul>');
+    var providers = {
+      Twitter: 'twitter',
+      GitHub: 'github',
+      Salesforce: 'forcedotcom',
+      Google: 'google',
+      Facebook: 'facebook'
+    };
 
-    var name = $name.val();
+    _.each(providers, function(apiId, provider) {
+      var $li = $("<li></li>");
+      $li.attr('class', provider.toLowerCase());
 
-    if (user.displayName === name) {
-      return;
-    }
+      var $link = $('<a>' + provider + '</a>');
+      $link.attr('href', conn.loginUrl(apiId));
 
-    room.self().key('displayName').set(name);
-    user.displayName = name;
+      $li.append('<span></span>');
+      $li.append($link);
+
+      $list.append($li);
+    });
+
+    $auth.append("<h3>Login with</h3>");
+    $auth.append($list);
+  }
+
+  function displayLogOut() {
+    var $btn = $('<div></div>');
+    var $link = $('<a>Logout</a>');
+
+    $link.attr('href', conn.logoutUrl());
+    $btn.attr('class', 'logout');
+    $btn.append('<span></span>');
+    $btn.append($link);
+
+    $auth.append($btn);
   }
 
   function scrollBottom() {

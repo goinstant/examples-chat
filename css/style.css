@@ -26,6 +26,125 @@ body {
     border-radius: 6px;
   }
 
+/*.auth/log out */
+.auth {
+  padding: 10px 15px;
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+}
+
+.auth h3 {
+  margin: 0 0 5px 0;
+}
+
+.auth ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+}
+
+.auth li,
+.auth .logout {
+  padding: 0;
+  width: 20%;
+  height: 30px;
+  border-right: 2px solid white;
+}
+
+.auth li {
+  display: inline-block;
+}
+
+.auth li:last-child {
+  border-right: 0;
+}
+
+.auth span {
+  margin: 0;
+  display: inline-block;
+  height: 30px;
+  width: 35px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.auth a {
+  display: inline-block;
+  height: 30px;
+  vertical-align: top;
+  padding: 8px 6px 10px 6px;
+  color: #f5f8fa;
+  font-size: 13px;
+}
+
+.auth a:link {
+  text-decoration: none;
+}
+
+.auth a:active {
+  text-decoration: none;
+}
+
+.auth a:visited {
+  text-decoration: none;
+}
+
+.twitter span {
+  background-color: #3c93d5;
+  background-image: url("../img/twi-icon.png");
+}
+
+.twitter {
+  background-color: #55acee;
+}
+
+.google span {
+  background-color: #c43220;
+  background-image: url("../img/g-icon.png");
+}
+
+.google {
+  background-color: #dd4b39;
+}
+
+.github span {
+  background-color: #333333;
+  background-image: url("../img/gh-icon.png");
+}
+
+.github {
+  background-color: #4d4d4d;
+}
+
+.salesforce span {
+  background-color: #117bbd;
+  background-image: url("../img/sf-icon.png");
+}
+
+.salesforce {
+  background-color: #2a94d6;
+}
+
+.facebook span {
+  background-color: #334d8b;
+  background-image: url("../img/fb-icon.png");
+}
+
+.facebook {
+  background-color: #4c66a4
+}
+
+.logout span {
+  background-color: #919191;
+  background-image: url("../img/logout-icon.png");
+}
+
+.logout {
+  background-color: #aaaaaa;
+}
+
 /* Send a message input box */
 .input {
   margin-top: 16px;
