@@ -7,7 +7,7 @@ html {
 }
 body {
   position: relative;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0 0 44px;
   font-family: sans-serif;
@@ -61,22 +61,30 @@ body {
   border-right: 0;
 }
 
-.auth span {
-  margin: 0;
+.auth a span {
   display: inline-block;
+  float: left;
   height: 30px;
+  padding: 8px 0 0 7px;
+  text-align: center;
+}
+
+.auth .icon {
   width: 35px;
+  margin: 0;
+  padding: 0;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .auth a {
-  display: inline-block;
+  display: block;
   height: 30px;
   vertical-align: top;
-  padding: 8px 6px 10px 6px;
   color: #f5f8fa;
   font-size: 13px;
+  border-radius: 2px;
+  overflow: hidden;
 }
 
 .auth a:link {
@@ -91,58 +99,84 @@ body {
   text-decoration: none;
 }
 
-.twitter span {
+.twitter .icon {
   background-color: #3c93d5;
   background-image: url("../img/twi-icon.png");
 }
 
-.twitter {
+.twitter a {
   background-color: #55acee;
 }
 
-.google span {
+.google .icon {
   background-color: #c43220;
   background-image: url("../img/g-icon.png");
 }
 
-.google {
+.google a {
   background-color: #dd4b39;
 }
 
-.github span {
+.github .icon {
   background-color: #333333;
   background-image: url("../img/gh-icon.png");
 }
 
-.github {
+.github a {
   background-color: #4d4d4d;
 }
 
-.salesforce span {
+.salesforce .icon {
   background-color: #117bbd;
   background-image: url("../img/sf-icon.png");
 }
 
-.salesforce {
+.salesforce a {
   background-color: #2a94d6;
 }
 
-.facebook span {
+.facebook .icon {
   background-color: #334d8b;
   background-image: url("../img/fb-icon.png");
 }
 
-.facebook {
+.facebook a {
   background-color: #4c66a4
 }
 
-.logout span {
+.logout .icon {
   background-color: #919191;
   background-image: url("../img/logout-icon.png");
 }
 
-.logout {
+.auth .logout {
   background-color: #aaaaaa;
+  border-right: 0;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 600px) {
+  .auth a span {
+    display: none;
+  }
+  .auth a .icon {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+  }
+  .auth .logout {
+    width: auto;
+    display: inline-block;
+  }
+  .auth .logout a span {
+    display: block;
+    padding-right: 7px;
+  }
+  .auth .logout a .icon {
+    display: inline-block;
+    width: 30px;
+    background-color: #919191;
+  }
 }
 
 /* Send a message input box */

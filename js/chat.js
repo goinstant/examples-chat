@@ -7,7 +7,7 @@ $(function() {
   var _ = window._;
   var goinstant = window.goinstant;
 
-  var url = 'CONNECT_URL_HERE';
+  var url = 'YOUR CONNECT URL HERE';
 
   var conn;
   var room;
@@ -105,29 +105,29 @@ $(function() {
     };
 
     _.each(providers, function(apiId, provider) {
-      var $li = $("<li></li>");
+      var $li = $('<li></li>');
       $li.attr('class', provider.toLowerCase());
 
-      var $link = $('<a>' + provider + '</a>');
+      var $link = $('<a><span>' + provider + '</span></a>');
       $link.attr('href', conn.loginUrl(apiId));
 
-      $li.append('<span></span>');
+      $link.prepend('<span class="icon"></span>');
       $li.append($link);
 
       $list.append($li);
     });
 
-    $auth.append("<h3>Login with</h3>");
+    $auth.append('<h3>Login with</h3>');
     $auth.append($list);
   }
 
   function displayLogOut() {
     var $btn = $('<div></div>');
-    var $link = $('<a>Logout</a>');
+    var $link = $('<a><span>Logout</span></a>');
 
     $link.attr('href', conn.logoutUrl());
     $btn.attr('class', 'logout');
-    $btn.append('<span></span>');
+    $link.prepend('<span class="icon"></span>');
     $btn.append($link);
 
     $auth.append($btn);
