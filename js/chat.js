@@ -7,7 +7,7 @@ $(function() {
   var _ = window._;
   var goinstant = window.goinstant;
 
-  var url = 'CONNECT_URL_HERE';
+  var url = 'https://goinstant.net/ntassone/test';
 
   var conn;
   var room;
@@ -105,19 +105,19 @@ $(function() {
     };
 
     _.each(providers, function(apiId, provider) {
-      var $li = $("<li></li>");
+      var $li = $('<li></li>');
       $li.attr('class', provider.toLowerCase());
 
-      var $link = $('<a>' + provider + '</a>');
+      var $link = $('<a><span>' + provider + '</span></a>');
       $link.attr('href', conn.loginUrl(apiId));
 
-      $li.append('<span></span>');
+      $link.prepend('<span class="icon"></span>');
       $li.append($link);
 
       $list.append($li);
     });
 
-    $auth.append("<h3>Login with</h3>");
+    $auth.append('<h3>Login with</h3>');
     $auth.append($list);
   }
 
