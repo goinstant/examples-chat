@@ -28,10 +28,15 @@ body {
 
 /*.auth/log out */
 .auth {
+  display: none;
   padding: 10px 15px;
   background: white;
   border: 2px solid #ccc;
   border-radius: 6px;
+}
+
+.auth.login {
+  display: block;
 }
 
 .auth h3 {
@@ -45,8 +50,7 @@ body {
   height: 30px;
 }
 
-.auth li,
-.auth .logout {
+.auth li {
   padding: 0;
   width: 20%;
   height: 30px;
@@ -126,12 +130,12 @@ body {
   background-color: #4d4d4d;
 }
 
-.salesforce .icon {
+.forcedotcom .icon {
   background-color: #117bbd;
   background-image: url("../img/sf-icon.png");
 }
 
-.salesforce a {
+.forcedotcom a {
   background-color: #2a94d6;
 }
 
@@ -144,22 +148,45 @@ body {
   background-color: #4c66a4
 }
 
-.logout .icon {
+/* Logout */
+
+.auth.logout {
+  display:inline-block;
+  height: 55px;
+}
+
+.button .icon {
   background-color: #919191;
   background-image: url("../img/logout-icon.png");
 }
 
-.auth .logout {
+.logout a {
+  width: 125px;
+  min-width: 125px;
+}
+
+.logout .icon {
+  display: inline-block;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.logout .button {
   background-color: #aaaaaa;
+  display: inline-block;
   border-right: 0;
   border-radius: 2px;
 }
 
+.logout .provider-icon {
+  display: inline-block;
+}
+
 @media screen and (max-width: 600px) {
-  .auth a span {
+  .auth.login a span {
     display: none;
   }
-  .auth a .icon {
+  .auth.login a .icon {
     display: block;
     width: 100%;
     background-color: transparent;
@@ -184,6 +211,25 @@ body {
   margin-top: 16px;
 }
 
+.avatar {
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    background-image: url("../img/avatar.png");
+    background-position: center;
+    margin-right: 8px;
+  }
+
+  .avatar img {
+    width: 34px;
+    height: 34px;
+  }
+
 input[type="text"] {
   margin: 0;
   padding: 11px;
@@ -202,7 +248,7 @@ input[type="text"] {
     margin-right: 8px;
   }
   input.text {
-    width: 437px;
+    width: 385px;
   }
 
 /* Messages list */
@@ -220,6 +266,13 @@ input[type="text"] {
     font-weight: 500;
   }
 
+  .messages li img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 19px;
+    height: 19px;
+  }
+
   .messages li:last-child {
     border-bottom: 0;
   }
@@ -231,6 +284,7 @@ input[type="text"] {
   .user-name {
     color: #999;
     margin-right: 16px;
+    margin-left: 10px;
     font-size: .9em;
   }
 
@@ -273,5 +327,8 @@ input[type="text"] {
   input[type="text"] {
       width: 100%;
       margin-bottom: 5px;
+  }
+  .input .avatar {
+    display: none;
   }
 }
